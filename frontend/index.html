@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Products</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between">
+                <div class="flex space-x-7">
+                    <div>
+                        <a href="#" class="flex items-center py-4">
+                            <span class="font-semibold text-gray-700 text-lg">TechGear Hub</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <a href="#" class="py-4 px-2 text-gray-500 hover:text-gray-700 transition duration-300">Home</a>
+                    <a href="#" class="py-4 px-2 text-gray-500 hover:text-gray-700 transition duration-300">Products</a>
+                    <a href="#" class="py-4 px-2 text-gray-500 hover:text-gray-700 transition duration-300">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto mt-10 px-4">
+        <!-- Featured Product -->
+        <section class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <h1 class="text-3xl font-bold text-gray-800 mb-4">Featured Products</h1>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Product 1 -->
+                <div class="bg-white rounded-lg overflow-hidden hover:shadow-xl transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed" 
+                         alt="Laptop" 
+                         class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Premium Laptop</h3>
+                        <p class="text-gray-600 mb-2">Ultra-thin professional laptop with 4K display</p>
+                        <span class="text-blue-600 font-bold">$1,299</span>
+                        <button class="mt-2 w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition duration-300">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="bg-white rounded-lg overflow-hidden hover:shadow-xl transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e" 
+                         alt="Headphones" 
+                         class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Wireless Headphones</h3>
+                        <p class="text-gray-600 mb-2">Noise-cancelling with premium sound quality</p>
+                        <span class="text-blue-600 font-bold">$299</span>
+                        <button class="mt-2 w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition duration-300">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="bg-white rounded-lg overflow-hidden hover:shadow-xl transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1593642634402-b0eb5e2eebc9" 
+                         alt="Smart Watch" 
+                         class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Smart Watch</h3>
+                        <p class="text-gray-600 mb-2">Fitness tracking with heart rate monitor</p>
+                        <span class="text-blue-600 font-bold">$199</span>
+                        <button class="mt-2 w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition duration-300">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories -->
+        <section class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Product Categories</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bg-gray-50 p-4 rounded-lg text-center hover:bg-gray-100 cursor-pointer transition duration-300">
+                    <i class="fas fa-laptop text-2xl mb-2"></i>
+                    <p class="font-semibold">Laptops</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg text-center hover:bg-gray-100 cursor-pointer transition duration-300">
+                    <i class="fas fa-headphones text-2xl mb-2"></i>
+                    <p class="font-semibold">Audio</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg text-center hover:bg-gray-100 cursor-pointer transition duration-300">
+                    <i class="fas fa-mobile-alt text-2xl mb-2"></i>
+                    <p class="font-semibold">Smartphones</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg text-center hover:bg-gray-100 cursor-pointer transition duration-300">
+                    <i class="fas fa-tablet-alt text-2xl mb-2"></i>
+                    <p class="font-semibold">Accessories</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white shadow-lg mt-10">
+        <div class="max-w-6xl mx-auto px-4 py-4">
+            <p class="text-center text-gray-600">© 2024 TechGear Hub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Add Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/your-font-awesome-kit.js"></script>
+</body>
+</html>
