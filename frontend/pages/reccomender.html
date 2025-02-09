@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+    <link re="stylesheet" href="">
+</head>
+<body>
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-6xl mx-auto px-4 ">
+            <div class="flex justify-between">
+                <div class="flex space-x-7">
+                    <div>
+                        <a href="#" class="flex items-center py-4">
+                            <span class="font-semibold text-gray-700 text-lg">Game2Play</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <a href="#" class="py-4 px-2 text-gray-500 hover:text-gray-700 transition duration-300">Home</a>
+                    <a href="/frontend//pages/index.html" class="py-4 px-2 text-gray-500 hover:text-gray-700 transition duration-300">Recommendation</a>
+                    <a href="#" class="py-4 px-2 text-gray-500 hover:text-gray-700 transition duration-300">Login/Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- top section -->
+    <div class="flex items-center justify-center h-screen w-full bg-sky-100">
+        <div class="flex flex-col text-left h-1/2 w-1/2 bg-white rounded-xl drop-shadow-2xl">
+            <div class="ml-7 mt-5 text-3xl">1. Question</div>
+            <div class="flex mt-5 gap-10">
+                <div class="ml-8">
+                    <fieldset>
+                        <input id="yes" class="peer/yes" type="radio" name="status" checked />
+                        <label for="yes" class="peer-checked/draft:text-sky-500">Yes</label>
+                      </fieldset>
+                </div>
+                <div class="mr-8">
+                    <fieldset>
+                        <input id="no" class="peer/no" type="radio" name="status" checked />
+                        <label for="no" class="peer-no/published:text-sky-500">No</label>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="flex justify-between mt-48">
+                <div class ="ml-8">
+                    <button id="backBtn" class="r text-xl rounded-lg border border-sky-500 drop-shadow-lg px-4 py-2 hover:bg-sky-500 hover:text-white transition duration-150">Back</button>
+                </div>
+                <div class="mr-8">
+                    <button id="nextBtn" class=" text-xl rounded-lg border border-sky-500 drop-shadow-lg px-4 py-2 hover:bg-sky-500 hover:text-white transition duration-150">Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="/frontend/styles/login.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <!-- Container -->
+  <div class="Outside_cont">
+  <!-- Left Cont -->
+    <div class="Left_cont"> 
+      <div class="top_row">
+        <img class="logo" src="/pictures/logo_white.png">
+        <h2>Welcome</h2>
+        <button class="button1"><a href="/">Back to website →</a></button>
+      </div>
+      <!-- Bottom Text-->
+      <div class="bottom_row">
+        <h3>Creating Memories</h3>
+      </div>
+    </div>
+    <!-- Right Cont  -->
+    <div class="Right_cont">
+      <!-- Header -->
+      <h1>Create an account</h1>
+      <!-- Descipt  -->
+      <div class="Log_in">
+        <p>Already have an account?</p>
+        <a href="/">Log in</a>
+      </div>
+      <!--Form  -->
+      <form>
+       <!-- Cont for first button pair -->
+        <div class="First_row">
+          <label>
+            <input type="text" placeholder="First Name"/>
+            <input type="text" placeholder="Last Name"/>
+          </label>
+        </div>
+        <!-- Email input  -->
+        <div class="Second_row">
+          <label>
+          <input type="text" placeholder="Email"/>
+          </label>
+        </div>
+        <!-- Password input -->
+        <div class="Third_row">
+          <label>
+          <input type="text" placeholder="Password"/>
+          </label>
+        </div>
+        <!-- Checkout + TOS  -->
+        <div class="Fourth_row">
+          <input type="checkbox">
+          <p>I agree to the <a href="/">Terms & Conditions</a> </p>
+        </div>
+        <!-- submit button -->
+        <input type="submit" value="Submit">
+      </form>
+    <!-- Register with p tag -->
+      <div class="tag">
+       <h6><span></spam>Or register with</span></h6>
+      </div>
+    <!-- Two button COntainer  -->
+      <div class="buttons">
+        <button class="button2"><img src="/frontend/images/glogo.png" style="height:40%;width:13%;"><a href="/">Google</a></button>
+        <button class="button3"><img src="/frontend/images/alogo.png" style="height:70%;width:23%;"><a href="/">Apple</a></button>
+      </div>
+    </div>
+</div>
+<script type="module">
+  const app = initializeApp(firebaseConfig);
+  // Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyCBx8BVGDU5BWs9Pn4yFusc_Wx-0tT83ec",
+  authDomain: "gamerecommender-37eed.firebaseapp.com",
+  projectId: "gamerecommender-37eed",
+  storageBucket: "gamerecommender-37eed.firebasestorage.app",
+  messagingSenderId: "602833454099",
+  appId: "1:602833454099:web:867879666433575b51abe6"
+};
+</script>
+
+// Initialize Firebase
+</body>
+</html>

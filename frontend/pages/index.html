@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Products</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-6xl mx-auto px-4 ">
+            <div class="flex justify-between">
+                <div class="flex space-x-7">
+                    <div>
+                        <a href="#" class="flex items-center py-4">
+                            <span class="font-semibold text-gray-700 text-lg">Game2Play</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <a href="/frontend/pages/info.html" class="py-4 px-2 text-gray-500 hover:text-gray-700 transition duration-300">Information</a>
+                    <a href="/frontend//pages/form.html" class="py-4 px-2 text-gray-500 hover:text-gray-700 transition duration-300">Recommendation</a>
+                    <a href="/frontend/pages/login.html" class="py-4 px-2 text-gray-500 hover:text-gray-700 transition duration-300">Login/Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+     <section>
+        <div class="h-screen bg-gradient-to-r from-cyan-500 to-cyan-700 opacity-60">
+            <img src="/frontend/images/gamebackg.png" alt="" class="w-full h-full ">
+        </div>
+    </section>
+        <!-- Make the next section -->
+        <section>
+            <div class="h-full bg-gradient-to-r from-cyan-500 to-cyan-600 opacity-80">
+                <div class="text-center text-5xl mb-2 pt-8 font-semibold">Steps to Getting Started!</div>
+                <div class=" flex flex-col w-full">
+                    <div class="flex items-center justify-center text-center gap-x-9 pt-4 pb-10">
+                    <!-- card -->
+                        <div class="h-[28rem] w-[23rem] rounded-xl bg-white p-4 m-4 drop-shadow-lg">
+                            <img src="/frontend/images/icon1.png" alt="" class="h-1/4 w-1/2">
+                            <p class="mt-4 text-5xl text-left font-semibold">Create an Account</p>
+                            <p class="mt-4 text-2xl text-left">Google sign up is now avaible</p>
+                        </div>
+                        <div class="h-[28rem] w-[23rem] rounded-xl bg-white p-4 m-4 drop-shadow-xl">
+                            <img src="/frontend/images/icon2.png" alt="" class="h-1/4 w-1/2">
+                            <p class="mt-4 text-5xl text-left font-semibold">Fill out a Quick Survey</p>
+                            <p class="mt-4 text-2xl text-left">Only a Few Question...</p>
+                        </div>
+                        <div class="h-[28rem] w-[23rem] rounded-xl bg-white p-4 m-4 drop-shadow-2xl">
+                            <img src="/frontend/images/icon3.png" alt="" class="h-1/4 w-1/2">
+                            <p class="mt-4 text-5xl text-left font-semibold">One Unique Game is recommended!</p>
+                            <p class="mt-4 text-2xl text-left">Get a Game Recommendation!</p>
+                        </div>
+                    </div>
+
+            
+        <!-- EXTRA TIME CALL TO ACTION SECTION --> 
+                <div class="flex flex-col items-center justify-center text-center mx-28 mb-32">
+                    <div class=" text-5xl text-center pb-6 font-semibold">Ready to Start?</div>
+                        <div class="flex flex-col items-center justify-center text-center h-96 w-full rounded-xl bg-white drop-shadow-2xl">
+                            <p class="text-3xl">Click down below to sign up/login!</p>
+                            <button id = "signupBtn" class=" text-xl text-black p-2 mt-2 drop-shadow-xl rounded-lg bg-cyan-500 hover:bg-cyan-600">Sign up/Login</button>
+                        </div>
+                </div>
+            </div>
+        </div>
+        </section>
+         <!-- THIS is a BUTTOn that take you to siign up  -->
+   
+    <!-- Add Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/your-font-awesome-kit.js"></script>
+</body>
+</html>
