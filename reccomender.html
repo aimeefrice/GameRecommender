@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+    <link re="stylesheet" href="">
+</head>
+<body>
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-6xl mx-auto px-4 ">
+            <div class="flex justify-between">
+                <div class="flex space-x-7">
+                    <div>
+                        <a href="/frontend/pages/index.html" class="flex items-center py-4">
+                            
+                            <span class="font-semibold text-gray-700 text-lg">Game2Play</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <a href="/frontend/pages/info.html" class="py-4 px-2 text-gray-500 hover:text-gray-700 transition duration-300">Information</a>
+                    <a href="/frontend/pages/reccomender.html" class="py-4 px-2 text-gray-500 hover:text-gray-700 transition duration-300">Recommendation</a>
+                    <a href="/frontend/pages/login.html" class="py-4 px-2 text-gray-500 hover:text-gray-700 transition duration-300">Login/Sign Up</a>
+                    <button onclick="window.location.href='/frontend/pages/index.html'" class="py-2 px-4 text-white bg-red-500 hover:bg-red-600 rounded-lg transition duration-300">Logout</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- top section -->
+    <div id="quiz-container" class="flex items-center justify-center h-screen w-full bg-sky-100">
+        <div class="flex flex-col text-left h-1/2 w-1/2 bg-white rounded-xl drop-shadow-2xl">
+            <div class="ml-7 mt-5 text-3xl">1. Question</div>
+            <div class="flex mt-5 gap-10">
+                <div class="ml-8">
+                    <fieldset>
+                        <input id="yes" class="peer/yes" type="radio" name="status" checked />
+                        <label for="yes" class="peer-checked/draft:text-sky-500">Yes</label>
+                      </fieldset>
+                </div>
+                <div class="mr-8">
+                    <fieldset>
+                        <input id="no" class="peer/no" type="radio" name="status" checked />
+                        <label for="no" class="peer-no/published:text-sky-500">No</label>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="flex justify-between mt-48">
+                <div class ="ml-8">
+                    <button id="backBtn" class="r text-xl rounded-lg border border-sky-500 drop-shadow-lg px-4 py-2 hover:bg-sky-500 hover:text-white transition duration-150">Back</button>
+                </div>
+                <div class="mr-8">
+                    <button id="nextBtn" class=" text-xl rounded-lg border border-sky-500 drop-shadow-lg px-4 py-2 hover:bg-sky-500 hover:text-white transition duration-150">Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const next = document.getElementById("nextBtn");
+        const back = document.getElementById("backBtn");
+
+        const quiz = {
+            questions : ["Do you like fighitng in your games?",
+            "Do you like multiplayer games?",
+            "Do you enjoy world-build games?",
+            "Do you like scary games?",
+            "Do you like casual games?",
+            "Do you like good stories in your games?",
+            "Do you like obby games?",
+            "Would you purchase the games?",
+            "Do you like competitiive games?",
+            "Do you like mobile games?"],
+            currentQuestion: 0,
+            answers: {},
+            isComplete: false
+        };
+
+        function initQuiz() {
+            quiz.currentQuestion = 0;
+            quiz.answers = {};
+            quiz.isComplete = false;
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            const questionEl = document.querySelector('.ml-7.mt-5.text-3xl');
+            questionEl.textContent = `${quiz.currentQuestion + 1}. ${quiz.questions[quiz.currentQuestion]}`;
+            
+            // Reset radio buttons
+            document.getElementById('yes').checked = false;
+            document.getElementById('no').checked = false;
+            
+            // If we have an answer for this question, select it
+            if (quiz.answers[quiz.currentQuestion] !== undefined) {
+                if (quiz.answers[quiz.currentQuestion]) {
+                    document.getElementById('yes').checked = true;
+                } else {
+                    document.getElementById('no').checked = true;
+                }
+            }
+            
+            // Handle back button visibility
+            back.style.visibility = quiz.currentQuestion === 0 ? 'hidden' : 'visible';
+        }
+        
+        function saveAnswer() {
+            const yesChecked = document.getElementById('yes').checked;
+            const noChecked = document.getElementById('no').checked;
+            
+            if (yesChecked || noChecked) {
+                quiz.answers[quiz.currentQuestion] = yesChecked;
+            }
+        }
+        
+        async function getRecommendations() {
+            try {
+                const response = await fetch('http://localhost:5000/recommend', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ answers: quiz.answers }),
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    return data.recommendations;
+                } else {
+                    console.error('Error getting recommendations:', data.error);
+                    return [];
+                }
+            } catch (error) {
+                console.error('Error fetching recommendations:', error);
+                return [];
+            }
+        }
+        
+        async function showResults() {
+            const container = document.getElementById('quiz-container');
+            
+            // Show loading state
+            container.innerHTML = `
+                <div class="ml-7 mt-5 text-3xl">Getting Your Recommendations...</div>
+                <div class="m-8 flex justify-center">
+                    <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-sky-500"></div>
+                </div>
+            `;
+            
+            // Get recommendations from backend
+            const recommendations = await getRecommendations();
+            
+            // Show recommendations
+            let recommendationsHTML = '';
+            if (recommendations.length > 0) {
+                recommendationsHTML = `
+                    <ul class="mt-4 list-disc pl-5">
+                        ${recommendations.map(game => `
+                            <li class="mb-2">
+                                <span class="font-bold">${game.name}</span> - 
+                                <span class="text-sm text-gray-600">${game.tags.join(', ')}</span>
+                            </li>
+                        `).join('')}
+                    </ul>
+                `;
+            } else {
+                recommendationsHTML = `
+                    <p class="mt-4 text-red-500">No recommendations found. Please try again.</p>
+                `;
+            }
+            
+            container.innerHTML = `
+                <div class="ml-7 mt-5 text-3xl">Your Game Recommendations</div>
+                <div class="m-8">
+                    <p>Based on your answers, we recommend these games for you:</p>
+                    ${recommendationsHTML}
+                    <div class="mt-8">
+                        <button id="restartBtn" class="text-xl rounded-lg border border-sky-500 drop-shadow-lg px-4 py-2 hover:bg-sky-500 hover:text-white transition duration-150">Restart Quiz</button>
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('restartBtn').addEventListener('click', initQuiz);
+        }
+        
+        // Event listeners
+        next.addEventListener('click', () => {
+            saveAnswer();
+            
+            if (quiz.currentQuestion < quiz.questions.length - 1) {
+                quiz.currentQuestion++;
+                renderQuestion();
+            } else {
+                quiz.isComplete = true;
+                showResults();
+            }
+        });
+        
+        back.addEventListener('click', () => {
+            saveAnswer();
+            
+            if (quiz.currentQuestion > 0) {
+                quiz.currentQuestion--;
+                renderQuestion();
+            }
+        });
+        
+        // Initialize the quiz when the page loads
+        initQuiz();
+    </script>
+
+</body>
+</html>
